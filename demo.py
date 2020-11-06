@@ -66,6 +66,15 @@ class Demo:
                 print("Trails Hiked: " ,self.HikingLog.getStatus(hikerToFind))
             else:
                 print(None)
+            print("")
+            print("     checking if hiker has hiked Mt. Pisgah")
+            if self.HikingLog.findTrail(trail1):
+                print(hikerToFind.toString(), " had hiked this before.")
+                print(self.HikingLog.getTrail())
+
+            else:
+                print("     ....Hiker has not hiked this before.")
+                #print(self.HikingLog.getTrail().toString())
         else:
             print("Hiker 1 does not seem to be in the system..")
 
@@ -78,6 +87,18 @@ class Demo:
                 print("Trails Hiked: ", self.HikingLog.getStatus(hikerToFind))
             else:
                 print(None)
+
+            print("")
+            print("     checking if hiker has hiked Mt. Pisgah")
+            if self.HikingLog.findTrail(trail2.getName()):
+                print(hikerToFind.toString(), " had hiked this before.")
+                print(self.HikingLog.getTrail())
+
+            else:
+                print("     ....Hiker has not hiked this before.")
+                # print(self.HikingLog.getTrail().toString())
+
+
         else:
             print("Hiker 2 does not seem to be in the system..")
 

@@ -47,9 +47,15 @@ class HikingLog:
                 trails.append(trail)
         return None
 
+    def hadHiked(self, trail):
+        for x in self.status:
+            if x.getTrail() == trail:
+                return True
+            return False
+
     def hasBeenHiked(self, trail):
         for x in self.status:
-            if x.getTrail == trail:
+            if x.getTrail() == trail:
                 return True
             return False
 
