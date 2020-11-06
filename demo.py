@@ -9,6 +9,7 @@ class Demo:
     def startDemo(self):
 
         #---------------HIKER 1 -----------------------------------#
+        print("------------Hiker 1-----------------")
         hiker1 = Hiker.Hiker('Sydney')
         trail1 = Trail.Trail('Mt. Mansfield', 'Stowe', "2.3 miles", "1")
 
@@ -24,6 +25,7 @@ class Demo:
         self.HikingLog.updateStatus(hiker1, trail3)
 
         # ---------------HIKER 2 -----------------------------------#
+
         hiker2 = Hiker.Hiker('Sid')
         trailName2 = 'Mt. Pisgah'
         trail2 = Trail.Trail(trailName2, 'Westmore', "1,500 ft", "2")
@@ -40,18 +42,19 @@ class Demo:
 
 
         #print out to ensure it adds correct
-        print("Hiker 1 Info: ", hiker1.toString())
+        print(hiker1.toString())
         print("Trail 1 Info: ", trail1.toString())
         # displays all the trail from one hiker
         print("Get Status Hiker 1: ", self.HikingLog.getStatus(hiker1))
 
         print("")
-        print("Hiker 2 Info: ", hiker2.toString())
+        print("------------Hiker 2-----------------")
+        print(hiker2.toString())
         print("Trail 2 Info: ", trail1.toString())
         print("Get Status Hiker 2: ", self.HikingLog.getStatus(hiker2))
 
         print("")
-        print("Show Full Hiking Log")
+        print("--------Show Full Hiking Log---------")
 
         print(self.HikingLog.showHikingLog())
 
