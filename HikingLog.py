@@ -3,6 +3,7 @@ import Status
 class HikingLog:
     hikingLog = None
 
+    @classmethod
     def get(self):
         if self.hikingLog is None:
             self.hikingLog = HikingLog()
@@ -33,6 +34,12 @@ class HikingLog:
     def addTrail(self, Trail):
         self.trails.add(Trail)
 
+    def findHiker(self, id):
+        for hiker in self.hikers:
+            if hiker.getId() == id:
+                return hiker.toString()
+        return None
+
     def hasBeenHiked(self, trail):
         for x in self.status:
             if x.getTrail == trail:
@@ -48,7 +55,7 @@ class HikingLog:
         else:
             return None
 
-    def showStatus(self):
+    def showHikingLog(self,):
         for x in self.status:
-            s = x.getHiker().toString() + ' => ' + x.getTrail().to_string()
+            s = x.getHiker().toString() + ' => ' + x.getTrail().toString()
             print(s)
