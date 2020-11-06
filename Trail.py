@@ -15,17 +15,17 @@ class Trail:
     def getElevation(self):
         return self.elevation
 
-    def get_rank(self):
+    def getRank(self):
         return self.rank
 
-    def set_name(self, name):
+    def setName(self, name):
         self.name = name
 
-    def set_location(self, location):
+    def setLocation(self, location):
         self.location = location
 
-    def set_elevation(self, elevation):
+    def setElevation(self, elevation):
         self.elevation = elevation
 
-    def set_rank(self, rank):
+    def setRank(self, rank):
         self.rank = rank
