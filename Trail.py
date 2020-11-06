@@ -1,31 +1,31 @@
 
 class Trail:
     def __init__(self, name, location, elevation, rank):
-        self._name = name
-        self._location = location
-        self._elevation = elevation
-        self._rank = rank
+        self.name = name
+        self.location = location
+        self.elevation = elevation
+        self.rank = rank
 
-    def get_name(self):
-        return self._name
+    def getName(self):
+        return self.name
 
-    def get_location(self):
-        return self._location
+    def getLocation(self):
+        return self.location
 
-    def get_elevation(self):
-        return self._elevation
+    def getElevation(self):
+        return self.elevation
 
     def get_rank(self):
-        return self._rank
+        return self.rank
 
     def set_name(self, name):
-        self._name = name
+        self.name = name
 
     def set_location(self, location):
-        self._location = location
+        self.location = location
 
     def set_elevation(self, elevation):
-        self._elevation = elevation
+        self.elevation = elevation
 
     def set_rank(self, rank):
-        self._rank = rank
+        self.rank = rank
