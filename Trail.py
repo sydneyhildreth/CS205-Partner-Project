@@ -29,3 +29,7 @@ class Trail:
 
     def setRank(self, rank):
         self.rank = rank
+
+    def toString(self):
+        s = self.name + ", " + self.location + ", " + self.elevation + ", " + self.rank
+        return s
