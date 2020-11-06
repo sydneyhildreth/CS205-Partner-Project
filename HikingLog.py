@@ -9,7 +9,6 @@ class HikingLog:
         return self.hikingLog
 
 
-
     def getHiker(self):
         return self.hikers
 
@@ -21,11 +20,12 @@ class HikingLog:
         for x in self.Status:
             if x.getHiker == hiker:
                 trailsHiked.append(x.getHiker)
+        return trailsHiked
 
     def __init__(self):
         self.hikers = set()
         self.trails = set()
-        self.Status = set()
+        self.status = set()
 
     def addHiker(self, Hiker):
         self.hikers.add(Hiker)
@@ -48,3 +48,8 @@ class HikingLog:
             return hiked
         else:
             return None
+
+    def showStatus(self):
+        for x in self.status:
+            s = x.getHiker().toString() + ' => ' + x.getTrail().to_string()
+            print(s)

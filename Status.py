@@ -11,3 +11,4 @@ class Status:
 
     def getTrail(self):
         return self.Trail
+
