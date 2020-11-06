@@ -12,14 +12,14 @@ class HikingLog:
     def getHiker(self):
         return self.hikers
 
-    def getTrailf(self):
+    def getTrail(self):
         return self.trails
 
     def getStatus(self, hiker):
         trailsHiked = []
-        for x in self.Status:
-            if x.getHiker == hiker:
-                trailsHiked.append(x.getHiker)
+        for x in self.status:
+            if x.getHiker() == hiker:
+                trailsHiked.append(x.getTrail().toString())
         return trailsHiked
 
     def __init__(self):
@@ -34,18 +34,17 @@ class HikingLog:
         self.trails.add(Trail)
 
     def hasBeenHiked(self, trail):
-        for x in self.Status:
-            if x.getTrail() == trail:
+        for x in self.status:
+            if x.getTrail == trail:
                 return True
-            else:
-                return False
+            return False
 
     def updateStatus(self, hiker, trail):
         if not self.hasBeenHiked(trail):
-            hiked = Status.Status(hiker, trail)
-            self.Status.add(hiked)
-            #hiker.updateStatus(trail)
-            return hiked
+            x = Status.Status(hiker, trail)
+            self.status.add(x)
+            hiker.addStatus(trail)
+            return x
         else:
             return None
 
