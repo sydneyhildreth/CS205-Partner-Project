@@ -9,10 +9,9 @@ class Demo:
     def startDemo(self):
 
         #---------------HIKER 1 -----------------------------------#
-        print("------------Hiker 1-----------------")
+
         hiker1 = Hiker.Hiker('Sydney')
         trail1 = Trail.Trail('Mt. Mansfield', 'Stowe', "2.3 miles", "1")
-
         trail3 = Trail.Trail('Hamilton Falls', 'Jamaica', "1.5 miles", "3")
 
         # add trail and hiker name to hikingLog
@@ -37,11 +36,11 @@ class Demo:
         # add the status for hiker
         self.HikingLog.updateStatus(hiker2, trail2)
 
-        hikerToFind = self.HikingLog.findHiker(1)
 
 
 
         #print out to ensure it adds correct
+        print("------------Hiker 1-----------------")
         print(hiker1.toString())
         print("Trail 1 Info: ", trail1.toString())
         # displays all the trail from one hiker
@@ -57,6 +56,33 @@ class Demo:
         print("--------Show Full Hiking Log---------")
 
         print(self.HikingLog.showHikingLog())
+
+        print("")
+        print("Loading Hiker 1...")
+        hikerToFind = self.HikingLog.findHiker(1)
+        if hikerToFind is not None:
+            trails = self.HikingLog.getStatus(hikerToFind)
+            if len(trails) > 0:
+                print("Trails Hiked: " ,self.HikingLog.getStatus(hikerToFind))
+            else:
+                print(None)
+        else:
+            print("Hiker 1 does not seem to be in the system..")
+
+        print("")
+        print("Loading Hiker 2...")
+        hikerToFind = self.HikingLog.findHiker(2)
+        if hikerToFind is not None:
+            trails = self.HikingLog.getStatus(hikerToFind)
+            if len(trails) > 0:
+                print("Trails Hiked: ", self.HikingLog.getStatus(hikerToFind))
+            else:
+                print(None)
+        else:
+            print("Hiker 2 does not seem to be in the system..")
+
+
+
 
 
 

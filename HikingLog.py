@@ -37,7 +37,14 @@ class HikingLog:
     def findHiker(self, id):
         for hiker in self.hikers:
             if hiker.getId() == id:
-                return hiker.toString()
+                return hiker
+        return None
+
+    def findTrail(self, trail):
+        trails = []
+        for trail in self.trails:
+            if trail.getName() == trail:
+                trails.append(trail)
         return None
 
     def hasBeenHiked(self, trail):
