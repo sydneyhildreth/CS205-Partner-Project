@@ -3,36 +3,57 @@ import Trail
 import HikingLog
 
 class Demo:
-    def __init__(self, hikingLog):
-        self.hikingLog = hikingLog
+    def __init__(self, HikingLog):
+        self.HikingLog = HikingLog
 
     def startDemo(self):
 
-        #create hiker and trail
+        #---------------HIKER 1 -----------------------------------#
         hiker1 = Hiker.Hiker('Sydney')
-        trailName1 = 'Mt. Mansfield'
-        trail1 = Trail.Trail(trailName1, 'Stowe', "2.3", "1")
-        hiker1.addStatus(trail1)
+        trail1 = Trail.Trail('Mt. Mansfield', 'Stowe', "2.3 miles", "1")
 
-        #add trail and hiker name to hikingLog
-        self.hikingLog.addHiker(hiker1)
-        self.hikingLog.addTrail(trail1)
+        trail3 = Trail.Trail('Hamilton Falls', 'Jamaica', "1.5 miles", "3")
 
-        #add the stats
-        self.hikingLog.updateStatus(hiker1, trail1)
+        # add trail and hiker name to hikingLog
+        self.HikingLog.addHiker(hiker1)
+        self.HikingLog.addTrail(trail1)
+        self.HikingLog.addTrail(trail3)
 
-        # TODO: seems like the updateStatus does not work
-        print(self.hikingLog.getStatus(hiker1))
+        #add the status for hiker 1
+        self.HikingLog.updateStatus(hiker1, trail1)
+        self.HikingLog.updateStatus(hiker1, trail3)
+
+        # ---------------HIKER 2 -----------------------------------#
+        hiker2 = Hiker.Hiker('Sid')
+        trailName2 = 'Mt. Pisgah'
+        trail2 = Trail.Trail(trailName2, 'Westmore', "1,500 ft", "2")
+
+        # add trail and hiker name to hikingLog
+        self.HikingLog.addHiker(hiker2)
+        self.HikingLog.addTrail(trail2)
+
+        # add the status for hiker
+        self.HikingLog.updateStatus(hiker2, trail2)
+
+        hikerToFind = self.HikingLog.findHiker(1)
+
+
 
         #print out to ensure it adds correct
-        print(hiker1.toString())
-        print(trail1.toString())
+        print("Hiker 1 Info: ", hiker1.toString())
+        print("Trail 1 Info: ", trail1.toString())
+        # displays all the trail from one hiker
+        print("Get Status Hiker 1: ", self.HikingLog.getStatus(hiker1))
 
-        # TODO: toString() for Status
-        print(self.hikingLog.updateStatus(hiker1, trail1))
+        print("")
+        print("Hiker 2 Info: ", hiker2.toString())
+        print("Trail 2 Info: ", trail1.toString())
+        print("Get Status Hiker 2: ", self.HikingLog.getStatus(hiker2))
 
-        # TODO: toString() for HikingLog
-        print(HikingLog.HikingLog().get())
+        print("")
+        print("Show Full Hiking Log")
+
+        print(self.HikingLog.showHikingLog())
 
 
 
