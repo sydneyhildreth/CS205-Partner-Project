@@ -80,7 +80,7 @@ class testStatus(unittest.TestCase):
 
     def testStatusTwo(self):
         print('testStatusTwo()')
-        # Let Syd hike
+        # check out a different book to mary
         s = self.HikingLog.updateStatus(self.syd, self.trail2)
         self.assertIsNotNone(s)
 

@@ -31,5 +31,5 @@ class Trail:
         self.rank = rank
 
     def toString(self):
-        s = self.name + ", " + self.location + ", " + self.elevation + ", " + self.rank
+        s = self.name + ", " + self.location + ", " + str(self.elevation) + ", " + str(self.rank)
         return s
