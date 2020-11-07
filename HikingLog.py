@@ -66,6 +66,7 @@ class HikingLog:
             hiker.addStatus(trail)
             return x
         else:
+            print("Oops looks like you have already hiked this.")
             return None
 
     def showHikingLog(self,):
