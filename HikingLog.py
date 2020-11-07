@@ -69,7 +69,15 @@ class HikingLog:
             print("Oops looks like you have already hiked this.")
             return None
 
-    def showHikingLog(self,):
+    def showHikingLog(self):
         for x in self.status:
             s = x.getHiker().toString() + ' => ' + x.getTrail().toString()
             print(s)
+
+    def whoHikedTrail(self, trail):
+        hiker = []
+        for x in self.status:
+            if x.getTrail == trail:
+                s = x.getHiker.toString()
+                hiker.append(s)
+        return hiker

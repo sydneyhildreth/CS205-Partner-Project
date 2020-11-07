@@ -37,6 +37,7 @@ class Demo:
 
         # add the status for hiker
         self.HikingLog.updateStatus(hiker2, trail2)
+        self.HikingLog.updateStatus(hiker2, trail1)
 
 
 
@@ -53,10 +54,16 @@ class Demo:
         print(hiker2.toString())
         print("Hiker 2 Trails: ", self.HikingLog.getStatus(hiker2))
 
+
         print("")
         print("--------Show Full Hiking Log---------")
 
         print(self.HikingLog.showHikingLog())
+
+        print("")
+
+        print(self.HikingLog.whoHikedTrail(trail1))
+
 
         print("")
         print("Loading Hiker 1...")
@@ -100,7 +107,6 @@ class Demo:
             else:
                 print("Looks like ", hikerToFind.getName(), " hasn't hiked any trails yet.")
 
-            print("")
 
             print(hikerToFind.getName(), "recently hiked Cantilever Rock in Underhill Center, VT. It is 2 miles long and "
                                          "he ranks it at 3.")
