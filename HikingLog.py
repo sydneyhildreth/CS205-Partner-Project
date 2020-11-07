@@ -59,6 +59,7 @@ class HikingLog:
                 return True
             return False
 
+
     def updateStatus(self, hiker, trail):
         if not self.hasBeenHiked(trail):
             x = Status.Status(hiker, trail)
@@ -69,6 +70,18 @@ class HikingLog:
             print("Oops looks like you have already hiked this.")
             return None
 
+    #Made a mistake by adding trail to hiker only and not hiker and status list
+    def updateStatusWrong(self, hiker, trail):
+        if not self.hasBeenHiked(trail):
+            x = Status.Status(hiker, trail)
+            #self.status.add(x)
+            hiker.addStatus(trail)
+            return x
+        else:
+            print("Oops looks like you have already hiked this.")
+            return None
+
+
     def showHikingLog(self):
         for x in self.status:
             s = x.getHiker().toString() + ' => ' + x.getTrail().toString()
@@ -77,7 +90,9 @@ class HikingLog:
     def whoHikedTrail(self, trail):
         hiker = []
         for x in self.status:
-            if x.getTrail == trail:
-                s = x.getHiker.toString()
+            if x.getTrail() == trail:
+                s = x.getHiker().getName()
                 hiker.append(s)
+
         return hiker
+

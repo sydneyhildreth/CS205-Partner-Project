@@ -37,7 +37,8 @@ class Demo:
 
         # add the status for hiker
         self.HikingLog.updateStatus(hiker2, trail2)
-        self.HikingLog.updateStatus(hiker2, trail1)
+
+
 
 
 
@@ -60,9 +61,7 @@ class Demo:
 
         print(self.HikingLog.showHikingLog())
 
-        print("")
 
-        print(self.HikingLog.whoHikedTrail(trail1))
 
 
         print("")
@@ -123,3 +122,30 @@ class Demo:
 
         else:
             print("Hiker 2 does not seem to be in the system..")
+
+        print("")
+        print("------------------Finding Hikers------------------")
+        print("Finding hikers who hiked", trailName2, self.HikingLog.whoHikedTrail(trail1))
+        print("Finding hikers who hiked Cantilever Rock", self.HikingLog.whoHikedTrail(trail4))
+
+        print("")
+        print("--------Show Fully Updated Hiking Log-------------")
+
+        print(self.HikingLog.showHikingLog())
+
+        print("")
+        print("---------------Incorrect Function----------------")
+        trail5 = Trail.Trail(" Rock", "Center", "2 miles", "3")
+        print("Adding ", trail5.toString())
+        self.HikingLog.updateStatusWrong(hiker2, trail5)
+        print(hiker2.toString(), " ",self.HikingLog.getStatus(hiker2))
+        print("Notice it has not been updated in Hiking Log due to incorrect implementation.")
+
+        print("")
+
+        print("-------Trying to add the same trail to hiker--------")
+        self.HikingLog.updateStatus(hiker2, trail1)
+
+
+
+
