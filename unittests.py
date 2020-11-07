@@ -9,18 +9,18 @@ class testStatus(unittest.TestCase):
     def setUpClass(cls):
         print('setUpClass()')
         cls.HikingLog = HikingLog.HikingLog().get()
-        trail1Name = 'yolo'
-        trail2Name = 'solo'
-        trail3Name = 'dolo'
-        trail1Location = 'one'
-        trail2Location = 'two'
-        trail3Location = 'three'
-        trail1Elevation = 111
-        trail2Elevation = 222
-        trail3Elevation = 333
-        trail1Rank = 3
-        trail2Rank = 2
-        trail3Rank = 1
+        trail1Name = 'Mt. Mansfield'
+        trail2Name = 'Mt. Pisgah'
+        trail3Name = 'Hamilton Falls'
+        trail1Location = 'Stowe'
+        trail2Location = 'Westmore'
+        trail3Location = 'Jamaica'
+        trail1Elevation = "2.3 miles"
+        trail2Elevation = "1,500ft"
+        trail3Elevation = "1.5miles"
+        trail1Rank = 1
+        trail2Rank = 3
+        trail3Rank = 2
 
         cls.trail1 = Trail.Trail(trail1Name, trail1Location, trail1Elevation, trail1Rank)
         cls.trail2 = Trail.Trail(trail2Name, trail2Location, trail2Elevation, trail2Rank)
