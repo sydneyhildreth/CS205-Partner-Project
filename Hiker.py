@@ -15,7 +15,7 @@ class Hiker:
         return self.name
 
     def toString(self):
-        s = "Hiker "+ str(self.getId()) + ": "+ self.name + " |  Number of Trails Hiked: " + str(len(self.status))
+        s = str(self.getId()) + ": "+ self.name + " |  Number of Trails Hiked: " + str(len(self.status))
         return s
 
     def addStatus(self, trail):

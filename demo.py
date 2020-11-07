@@ -18,6 +18,8 @@ class Demo:
         self.HikingLog.addHiker(hiker1)
         self.HikingLog.addTrail(trail1)
         self.HikingLog.addTrail(trail3)
+        self.HikingLog.addTrail(trail3)
+
 
         #add the status for hiker 1
         self.HikingLog.updateStatus(hiker1, trail1)
@@ -35,6 +37,7 @@ class Demo:
 
         # add the status for hiker
         self.HikingLog.updateStatus(hiker2, trail2)
+        self.HikingLog.updateStatus(hiker2, trail1)
 
 
 
@@ -42,15 +45,15 @@ class Demo:
         #print out to ensure it adds correct
         print("------------Hiker 1-----------------")
         print(hiker1.toString())
-        print("Trail 1 Info: ", trail1.toString())
+
         # displays all the trail from one hiker
-        print("Get Status Hiker 1: ", self.HikingLog.getStatus(hiker1))
+        print("Hiker 1 Trails: ", self.HikingLog.getStatus(hiker1))
 
         print("")
         print("------------Hiker 2-----------------")
         print(hiker2.toString())
-        print("Trail 2 Info: ", trail1.toString())
-        print("Get Status Hiker 2: ", self.HikingLog.getStatus(hiker2))
+        print("Hiker 2 Trails: ", self.HikingLog.getStatus(hiker2))
+
 
         print("")
         print("--------Show Full Hiking Log---------")
@@ -58,23 +61,36 @@ class Demo:
         print(self.HikingLog.showHikingLog())
 
         print("")
+
+        print(self.HikingLog.whoHikedTrail(trail1))
+
+
+        print("")
         print("Loading Hiker 1...")
         hikerToFind = self.HikingLog.findHiker(1)
         if hikerToFind is not None:
             trails = self.HikingLog.getStatus(hikerToFind)
+            print("Looking for trails hiked by", hikerToFind.getName(), "...")
             if len(trails) > 0:
+
                 print("Trails Hiked: " ,self.HikingLog.getStatus(hikerToFind))
-            else:
-                print(None)
-            print("")
-            print("     checking if hiker has hiked Mt. Pisgah")
-            if self.HikingLog.findTrail(trail1):
-                print(hikerToFind.toString(), " had hiked this before.")
-                print(self.HikingLog.getTrail())
+                print("                         ---------------------------------")
 
             else:
-                print("     ....Hiker has not hiked this before.")
-                #print(self.HikingLog.getTrail().toString())
+                print("Looks like ", hikerToFind.getName(), " hasn't hiked any trails yet.")
+            print(hikerToFind.getName(),"recently hiked Camel's Hump in Waterbury, VT. It is 4000ft high and "
+                  "she ranks it at 1.")
+            print("Updating Records....")
+            trail3 = Trail.Trail("Camel's Hump", "Waterbury", "4,000 ft", "1")
+
+            # add trail and hiker name to hikingLog
+            self.HikingLog.addTrail(trail3)
+            # add the status for hiker
+            self.HikingLog.updateStatus(hiker1, trail3)
+            print("Updated Trails for", hikerToFind.getName(), ":", self.HikingLog.getStatus(hikerToFind))
+
+
+
         else:
             print("Hiker 1 does not seem to be in the system..")
 
@@ -83,42 +99,27 @@ class Demo:
         hikerToFind = self.HikingLog.findHiker(2)
         if hikerToFind is not None:
             trails = self.HikingLog.getStatus(hikerToFind)
+            print("Looking for trails hiked by", hikerToFind.getName(), "...")
             if len(trails) > 0:
-                print("Trails Hiked: ", self.HikingLog.getStatus(hikerToFind))
-            else:
-                print(None)
 
-            print("")
-            print("     checking if hiker has hiked Mt. Pisgah")
-            if self.HikingLog.findTrail(trail2.getName()):
-                print(hikerToFind.toString(), " had hiked this before.")
-                print(self.HikingLog.getTrail())
-
+                print("Trails Hiked: " ,self.HikingLog.getStatus(hikerToFind))
+                print("                         ---------------------------------")
             else:
-                print("     ....Hiker has not hiked this before.")
-                # print(self.HikingLog.getTrail().toString())
+                print("Looks like ", hikerToFind.getName(), " hasn't hiked any trails yet.")
+
+
+            print(hikerToFind.getName(), "recently hiked Cantilever Rock in Underhill Center, VT. It is 2 miles long and "
+                                         "he ranks it at 3.")
+            print("Updating Records....")
+            trail4 = Trail.Trail("Cantilever Rock", "Underhill Center", "2 miles", "3")
+
+            # add trail and hiker name to hikingLog
+            self.HikingLog.addTrail(trail4)
+            # add the status for hiker
+            self.HikingLog.updateStatus(hiker2, trail4)
+            print("Updated Trails for", hikerToFind.getName(), ":", self.HikingLog.getStatus(hikerToFind))
+
 
 
         else:
             print("Hiker 2 does not seem to be in the system..")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
