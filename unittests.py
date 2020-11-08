@@ -53,32 +53,7 @@ class testStatus(unittest.TestCase):
         print('tearDown()')
 
 
-    def testStatusWrong(self):
-        print('testStatusWrong()')
-        # check that the Hiking Log shows that no trails are hiked by Sid
-        trails = self.HikingLog.getStatus(self.sid)
-        self.assertEqual(len(trails), 0)
-
-        # Update Status for Sid
-        x = self.HikingLog.updateStatusWrong(self.sid, self.trail1)
-
-        # check that the Hiking Log shows one trail hiked by Sid
-        trails = self.HikingLog.getStatus(self.sid)
-        self.assertEqual(len(trails), 1)
-
-        # check that the trail hiked by sid is trail1
-        if len(trails) == 1:
-            self.assertEqual(trails[0], self.trail1.toString())
-
-        # check that sid has hiked only one trail so far
-        trails = self.sid.getStatus()
-        self.assertEqual(len(trails), 1)
-
-        # check that the trail hiked by sid is trail1
-        if len(trails) == 1:
-            self.assertEqual(trails[0], self.trail1)
-
-
+    # This test calls the correct implementation of our member function
     def testStatusOne(self):
         print('testStatusone()')
         # check that the Hiking Log shows that no trails are hiked by Sid
@@ -105,6 +80,34 @@ class testStatus(unittest.TestCase):
             self.assertEqual(trails[0], self.trail1)
 
 
+    # This test calls the wrong implementation of our member function
+    def testStatusWrong(self):
+        print('testStatusWrong()')
+        # check that the Hiking Log shows that no trails are hiked by Sid
+        trails = self.HikingLog.getStatus(self.sid)
+        self.assertEqual(len(trails), 1)
+
+        # Update Status for Sid
+        x = self.HikingLog.updateStatusWrong(self.sid, self.trail1)
+
+        # check that the Hiking Log shows one trail hiked by Sid
+        trails = self.HikingLog.getStatus(self.sid)
+        self.assertEqual(len(trails), 1)
+
+        # check that the trail hiked by sid is trail1
+        if len(trails) == 1:
+            self.assertEqual(trails[0], self.trail1.toString())
+
+        # check that sid has hiked only one trail so far
+        trails = self.sid.getStatus()
+        self.assertEqual(len(trails), 1)
+
+        # check that the trail hiked by sid is trail1
+        if len(trails) == 1:
+            self.assertEqual(trails[0], self.trail1)
+
+
+    # This is another test for our member function and it tests most of our member function
     def testStatusTwo(self):
         print('testStatusTwo()')
         # let syd hike a different trail and accordingly update status for syd
@@ -147,8 +150,13 @@ class testStatus(unittest.TestCase):
         if len(trails) == 1:
             self.assertEqual(trails[0], self.trail2)
 
+
+    # This test tests whoHasHiked function
     def testWhoHasHiked(self):
+        # update that hiker Sydney has hiked trail3 in the hiking log
         self.HikingLog.updateStatus(self.sydney, self.trail3)
+
+        # check to see that trail3 has been hiked only by Sydney so far
         self.assertEqual(self.HikingLog.whoHikedTrail(self.trail3), [self.sydney.getName()])
 
 
