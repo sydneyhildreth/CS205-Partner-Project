@@ -52,6 +52,9 @@ class testStatus(unittest.TestCase):
         print('tearDown()')
 
 
+    #def testStatusWrong(self):
+
+
     def testStatusOne(self):
         print('testStatusone()')
         # check that the Hiking Log shows that no trails are hiked by Sid
@@ -65,38 +68,38 @@ class testStatus(unittest.TestCase):
         trails = self.HikingLog.getStatus(self.sid)
         self.assertEqual(len(trails), 1)
 
-        # check that the book checked out to john is book1
+        # check that the trail hiked by sid is trail1
         if len(trails) == 1:
             self.assertEqual(trails[0], self.trail1.toString())
 
-        # check that john shows one book checked out
+        # check that sid has hiked only one trail so far
         trails = self.sid.getStatus()
         self.assertEqual(len(trails), 1)
 
-        # check that the book checked out to john is book1
+        # check that the trail hiked by sid is trail1
         if len(trails) == 1:
             self.assertEqual(trails[0], self.trail1)
 
 
     def testStatusTwo(self):
         print('testStatusTwo()')
-        # check out a different book to mary
+        # let syd hike a different trail and accordingly update status for syd
         s = self.HikingLog.updateStatus(self.syd, self.trail2)
         self.assertIsNotNone(s)
 
-        # check that the library shows one book checked out to mary
+        # check that the hiking log shows that syd has only hiked one trail so far
         trails = self.HikingLog.getStatus(self.syd)
         self.assertEqual(len(trails), 1)
 
-        # check that the book checked out to mary is book2
+        # check that the trail hiked by syd is trail2
         if len(trails) == 1:
             self.assertEqual(trails[0], self.trail2.toString())
 
-        # check that mary shows one book checked out
+        # check that syd has only hiked one trail so far
         trails = self.syd.getStatus()
         self.assertEqual(len(trails), 1)
 
-        # check that the book checked out to mary is book2
+        # check that the trail hiked by syd is trail2
         if len(trails) == 1:
             self.assertEqual(trails[0], self.trail2)
 
