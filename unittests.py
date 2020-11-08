@@ -53,6 +53,31 @@ class testStatus(unittest.TestCase):
         print('tearDown()')
 
 
+    def testStatusWrong(self):
+        print('testStatusWrong()')
+        # check that the Hiking Log shows that no trails are hiked by Sid
+        trails = self.HikingLog.getStatus(self.sid)
+        self.assertEqual(len(trails), 0)
+
+        # Update Status for Sid
+        x = self.HikingLog.updateStatusWrong(self.sid, self.trail1)
+
+        # check that the Hiking Log shows one trail hiked by Sid
+        trails = self.HikingLog.getStatus(self.sid)
+        self.assertEqual(len(trails), 1)
+
+        # check that the trail hiked by sid is trail1
+        if len(trails) == 1:
+            self.assertEqual(trails[0], self.trail1.toString())
+
+        # check that sid has hiked only one trail so far
+        trails = self.sid.getStatus()
+        self.assertEqual(len(trails), 1)
+
+        # check that the trail hiked by sid is trail1
+        if len(trails) == 1:
+            self.assertEqual(trails[0], self.trail1)
+
 
     def testStatusOne(self):
         print('testStatusone()')
