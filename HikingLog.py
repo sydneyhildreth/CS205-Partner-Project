@@ -47,22 +47,17 @@ class HikingLog:
                 trails.append(trail)
         return None
 
+
     def hasBeenHiked(self, trail):
-        counter = 0
-        for x in self.status:
-            #print(x.getTrail().toString())
-            if x.getTrail() == trail:
-                counter += 1
-            if counter == 1:
+        for t in self.status:
+            if t.getTrail() == trail:
                 return True
-            else:
-                return False
+        return False
 
 
     def updateStatus(self, hiker, trail):
         #print(self.hasBeenHiked(trail))
         if not self.hasBeenHiked(trail):
-
             x = Status.Status(hiker, trail)
             self.status.add(x)
             hiker.addStatus(trail)
