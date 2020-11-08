@@ -8,7 +8,7 @@ class Demo:
 
     def startDemo(self):
 
-        #---------------HIKER 1 -----------------------------------#
+        print("# ---------------HIKER 1 -----------------------------------#")
 
         hiker1 = Hiker.Hiker('Sydney')
         trail1 = Trail.Trail('Mt. Mansfield', 'Stowe', "2.3 miles", "1")
@@ -23,9 +23,14 @@ class Demo:
 
         #add the status for hiker 1
         self.HikingLog.updateStatus(hiker1, trail1)
+
+        print("...Trying to add the same trail to hiker 1     ")
+        self.HikingLog.updateStatus(hiker1, trail1)
+        print(hiker1.toString(), " ", self.HikingLog.getStatus(hiker1))
+
         self.HikingLog.updateStatus(hiker1, trail3)
 
-        # ---------------HIKER 2 -----------------------------------#
+        print("# ---------------HIKER 2 -----------------------------------#")
 
         hiker2 = Hiker.Hiker('Sid')
         trailName2 = 'Mt. Pisgah'
@@ -37,6 +42,10 @@ class Demo:
 
         # add the status for hiker
         self.HikingLog.updateStatus(hiker2, trail2)
+
+        print("-------Trying to add the same trail to hiker 2 --------")
+        self.HikingLog.updateStatus(hiker2, trail2)
+        print(hiker2.toString(), " ", self.HikingLog.getStatus(hiker2))
 
 
 
@@ -125,7 +134,7 @@ class Demo:
 
         print("")
         print("------------------Finding Hikers------------------")
-        print("Finding hikers who hiked", trailName2, self.HikingLog.whoHikedTrail(trail1))
+        print("Finding hikers who hiked", trailName2, self.HikingLog.whoHikedTrail(trail2))
         print("Finding hikers who hiked Cantilever Rock", self.HikingLog.whoHikedTrail(trail4))
 
         print("")
@@ -143,8 +152,7 @@ class Demo:
 
         print("")
 
-        print("-------Trying to add the same trail to hiker--------")
-        self.HikingLog.updateStatus(hiker2, trail1)
+
 
 
 
