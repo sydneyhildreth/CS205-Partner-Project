@@ -8,13 +8,14 @@ class Demo:
 
     def startDemo(self):
 
-        #---------------HIKER 1 -----------------------------------#
+        print("# ---------------HIKER 1 -----------------------------------#")
 
         hiker1 = Hiker.Hiker('Sydney')
         trail1 = Trail.Trail('Mt. Mansfield', 'Stowe', "2.3 miles", "1")
         trail3 = Trail.Trail('Hamilton Falls', 'Jamaica', "1.5 miles", "3")
 
         # add trail and hiker name to hikingLog
+        print("..adding hiker and trails")
         self.HikingLog.addHiker(hiker1)
         self.HikingLog.addTrail(trail1)
         self.HikingLog.addTrail(trail3)
@@ -22,7 +23,10 @@ class Demo:
 
 
         #add the status for hiker 1
+        print("..updating hiking log")
         self.HikingLog.updateStatus(hiker1, trail1)
+        print("...updated")
+
 
         print("...Trying to add the same trail to hiker 1     ")
         self.HikingLog.updateStatus(hiker1, trail1)
@@ -30,22 +34,28 @@ class Demo:
 
         self.HikingLog.updateStatus(hiker1, trail3)
 
-        # ---------------HIKER 2 -----------------------------------#
+        print("# ---------------HIKER 2 -----------------------------------#")
 
         hiker2 = Hiker.Hiker('Sid')
         trailName2 = 'Mt. Pisgah'
         trail2 = Trail.Trail(trailName2, 'Westmore', "1,500 ft", "2")
 
         # add trail and hiker name to hikingLog
+        print("..adding hiker and trails")
         self.HikingLog.addHiker(hiker2)
         self.HikingLog.addTrail(trail2)
 
         # add the status for hiker
+        print("..updating hiking log")
         self.HikingLog.updateStatus(hiker2, trail2)
+        print("...updated")
 
-        print("-------Trying to add the same trail to hiker 2 --------")
+        print("...Trying to add the same trail to hiker 2")
         self.HikingLog.updateStatus(hiker2, trail2)
         print(hiker2.toString(), " ", self.HikingLog.getStatus(hiker2))
+
+
+
 
 
 
@@ -149,10 +159,8 @@ class Demo:
 
         print("")
 
-
-
-
-
+        print("-------Trying to add the same trail to hiker--------")
+        self.HikingLog.updateStatus(hiker2, trail1)
 
 
 
