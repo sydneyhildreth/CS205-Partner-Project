@@ -103,6 +103,26 @@ class testStatus(unittest.TestCase):
         if len(trails) == 1:
             self.assertEqual(trails[0], self.trail2)
 
+        # add same trail to hiker syd to make sure that it is not being repeated(saved as a different trail although
+        # it is the same trail) in the hiking log
+        self.HikingLog.updateStatus(self.syd, self.trail2)
+
+        #check to see that syd has only hiked one trail so far
+        trails = self.HikingLog.getStatus(self.syd)
+        self.assertEqual(len(trails), 1)
+
+        # check to see that the trail hiked by syd is trail2
+        if len(trails) == 1:
+            self.assertEqual(trails[0], self.trail2.toString())
+
+        # check that syd has only hiked one trail so far meaning the trail is not being repeated when we update status
+        trails = self.syd.getStatus()
+        self.assertEqual(len(trails), 1)
+
+        # check that the trail hiked by syd is trail2
+        if len(trails) == 1:
+            self.assertEqual(trails[0], self.trail2)
+
 
 if __name__ == "__main__":
   unittest.main()
