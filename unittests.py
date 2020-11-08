@@ -15,9 +15,11 @@ class testStatus(unittest.TestCase):
         trail1Location = 'Stowe'
         trail2Location = 'Westmore'
         trail3Location = 'Jamaica'
+
         trail1Elevation = 2.3
         trail2Elevation = 1500
         trail3Elevation = 1.5
+
         trail1Rank = 1
         trail2Rank = 3
         trail3Rank = 2
@@ -56,7 +58,8 @@ class testStatus(unittest.TestCase):
         # called after every test
         print('tearDown()')
 
-        # This test calls the correct implementation of our member function
+
+    # This test calls the correct implementation of our member function
     def testStatusOne(self):
             print('testStatusone()')
             # check that the Hiking Log shows that no trails are hiked by Sid
@@ -82,7 +85,7 @@ class testStatus(unittest.TestCase):
             if len(trails) == 1:
                 self.assertEqual(trails[0], self.trail1)
 
-        #This test calls the wrong implementation of our member function
+    #This test calls the wrong implementation of our member function
     def testStatusWrong(self):
         print('testStatusWrong()')
         # check that the Hiking Log shows that no trails are hiked by Sid
@@ -118,7 +121,6 @@ class testStatus(unittest.TestCase):
     def testStatusTwo(self):
         print('testStatusTwo()')
         # let syd hike a different trail and accordingly update status for syd
-
         s = self.HikingLog.updateStatus(self.syd, self.trail2)
         # add same trail to hiker syd to make sure that it is not being repeated(saved as a different trail although
         s2 = self.HikingLog.updateStatus(self.syd, self.trail2)
@@ -127,6 +129,7 @@ class testStatus(unittest.TestCase):
         #self.assertIsNone(s2)
 
         # check that the hiking log shows that syd has only hiked one trail so far
+
         # meaning that the same trail is not being repeated when we update status
         trails = self.HikingLog.getStatus(self.syd)
         self.assertEqual(len(trails), 1)
@@ -137,6 +140,7 @@ class testStatus(unittest.TestCase):
 
         # check that syd has only hiked one trail so far
         # meaning that the same trail is not being repeated when we update status
+
         trails = self.syd.getStatus()
         self.assertEqual(len(trails), 1)
 
