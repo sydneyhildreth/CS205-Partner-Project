@@ -28,6 +28,7 @@ class testStatus(unittest.TestCase):
 
         cls.sid = Hiker.Hiker('Sid')
         cls.syd = Hiker.Hiker('Syd')
+        cls.sydney = Hiker.Hiker('Sydney')
 
         cls.HikingLog.addTrail(cls.trail1)
         cls.HikingLog.addTrail(cls.trail2)
@@ -51,8 +52,6 @@ class testStatus(unittest.TestCase):
         # called after every test
         print('tearDown()')
 
-
-    #def testStatusWrong(self):
 
 
     def testStatusOne(self):
@@ -108,12 +107,12 @@ class testStatus(unittest.TestCase):
         self.HikingLog.updateStatus(self.syd, self.trail2)
 
         #check to see that syd has only hiked one trail so far
-        trails = self.HikingLog.getStatus(self.syd)
-        self.assertEqual(len(trails), 1)
+        t = self.HikingLog.getStatus(self.syd)
+        self.assertEqual(len(t), 1)
 
         # check to see that the trail hiked by syd is trail2
-        if len(trails) == 1:
-            self.assertEqual(trails[0], self.trail2.toString())
+        if len(t) == 1:
+            self.assertEqual(t[0], self.trail2.toString())
 
         # check that syd has only hiked one trail so far meaning the trail is not being repeated when we update status
         trails = self.syd.getStatus()
@@ -122,6 +121,10 @@ class testStatus(unittest.TestCase):
         # check that the trail hiked by syd is trail2
         if len(trails) == 1:
             self.assertEqual(trails[0], self.trail2)
+
+    def testWhoHasHiked(self):
+        self.HikingLog.updateStatus(self.sydney, self.trail3)
+        self.assertEqual(self.HikingLog.whoHikedTrail(self.trail3), [self.sydney.getName()])
 
 
 if __name__ == "__main__":
