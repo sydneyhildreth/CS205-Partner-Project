@@ -49,14 +49,12 @@ class HikingLog:
 
 
     def hasBeenHiked(self, trail):
-        counter = 0
         for x in self.status:
+            # print(x.getTrail().toString())
             if x.getTrail() == trail:
-                counter += 1
-        if counter == 2:
-            return False
-        else:
-            return True
+                return True
+        return False
+
 
 
            

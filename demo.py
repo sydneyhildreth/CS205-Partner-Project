@@ -23,6 +23,11 @@ class Demo:
 
         #add the status for hiker 1
         self.HikingLog.updateStatus(hiker1, trail1)
+
+        print("...Trying to add the same trail to hiker 1     ")
+        self.HikingLog.updateStatus(hiker1, trail1)
+        print(hiker1.toString(), " ", self.HikingLog.getStatus(hiker1))
+
         self.HikingLog.updateStatus(hiker1, trail3)
 
         # ---------------HIKER 2 -----------------------------------#
@@ -38,8 +43,9 @@ class Demo:
         # add the status for hiker
         self.HikingLog.updateStatus(hiker2, trail2)
 
-
-
+        print("-------Trying to add the same trail to hiker 2 --------")
+        self.HikingLog.updateStatus(hiker2, trail2)
+        print(hiker2.toString(), " ", self.HikingLog.getStatus(hiker2))
 
 
 
@@ -143,8 +149,7 @@ class Demo:
 
         print("")
 
-        print("-------Trying to add the same trail to hiker--------")
-        print(self.HikingLog.updateStatus(hiker1, trail1))
+
 
 
 

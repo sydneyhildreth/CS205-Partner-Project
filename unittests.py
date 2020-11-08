@@ -15,9 +15,9 @@ class testStatus(unittest.TestCase):
         trail1Location = 'Stowe'
         trail2Location = 'Westmore'
         trail3Location = 'Jamaica'
-        trail1Elevation = "2.3 miles"
-        trail2Elevation = "1,500ft"
-        trail3Elevation = "1.5miles"
+        trail1Elevation = 2.3
+        trail2Elevation = 1.5
+        trail3Elevation = 1.5
         trail1Rank = 1
         trail2Rank = 3
         trail3Rank = 2
@@ -141,6 +141,7 @@ class testStatus(unittest.TestCase):
 
     # This test tests whoHasHiked function
     def testWhoHasHiked(self):
+        print('testWhoHasHiked()')
         # update that hiker Sydney has hiked trail3 in the hiking log
         self.HikingLog.updateStatus(self.sydney, self.trail3)
 
