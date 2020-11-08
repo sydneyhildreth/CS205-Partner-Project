@@ -144,7 +144,7 @@ class Demo:
         print("")
 
         print("-------Trying to add the same trail to hiker--------")
-        print(self.HikingLog.updateStatus(hiker2, trail1))
+        print(self.HikingLog.updateStatus(hiker1, trail1))
 
 
 
