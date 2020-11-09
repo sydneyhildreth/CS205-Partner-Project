@@ -40,13 +40,6 @@ class HikingLog:
                 return hiker
         return None
 
-    def findTrail(self, trail):
-        trails = []
-        for trail in self.trails:
-            if trail.getName() == trail:
-                trails.append(trail)
-        return None
-
 
     def hasBeenHiked(self, trail):
         for t in self.status:
@@ -70,7 +63,6 @@ class HikingLog:
     def updateStatusWrong(self, hiker, trail):
         if not self.hasBeenHiked(trail):
             x = Status.Status(hiker, trail)
-            #self.status.add(x)
             hiker.addStatus(trail)
             return x
         else:

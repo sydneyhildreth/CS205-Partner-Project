@@ -19,7 +19,7 @@ class Demo:
         self.HikingLog.addHiker(hiker1)
         self.HikingLog.addTrail(trail1)
         self.HikingLog.addTrail(trail3)
-
+        self.HikingLog.addTrail(trail3)
 
 
         #add the status for hiker 1
@@ -27,7 +27,8 @@ class Demo:
         self.HikingLog.updateStatus(hiker1, trail1)
         print("...updated")
 
-        print("...Trying to add the same trail to hiker 1")
+
+        print("...Trying to add the same trail to hiker 1     ")
         self.HikingLog.updateStatus(hiker1, trail1)
         print(hiker1.toString(), " ", self.HikingLog.getStatus(hiker1))
 
@@ -140,7 +141,7 @@ class Demo:
 
         print("")
         print("------------------Finding Hikers------------------")
-        print("Finding hikers who hiked", trailName2, self.HikingLog.whoHikedTrail(trail2))
+        print("Finding hikers who hiked", trailName2, self.HikingLog.whoHikedTrail(trail1))
         print("Finding hikers who hiked Cantilever Rock", self.HikingLog.whoHikedTrail(trail4))
         print("Finding hikers who hiked Hamilton Falls", self.HikingLog.whoHikedTrail(trail3))
 
@@ -159,7 +160,8 @@ class Demo:
 
         print("")
 
-
+        print("-------Trying to add the same trail to hiker--------")
+        self.HikingLog.updateStatus(hiker2, trail1)
 
 
 
