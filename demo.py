@@ -31,8 +31,8 @@ class Demo:
         self.HikingLog.updateStatus(hiker1, trail1)
         print(hiker1.toString(), " ", self.HikingLog.getStatus(hiker1))
 
-        self.HikingLog.updateStatus(hiker1, trail3)
 
+        print("")
         print("# ---------------HIKER 2 -----------------------------------#")
 
         hiker2 = Hiker.Hiker('Sid')
@@ -47,26 +47,26 @@ class Demo:
         # add the status for hiker
         print("..updating hiking log")
         self.HikingLog.updateStatus(hiker2, trail2)
+
         print("...updated")
 
         print("...Trying to add the same trail to hiker 2")
         self.HikingLog.updateStatus(hiker2, trail2)
         print(hiker2.toString(), " ", self.HikingLog.getStatus(hiker2))
 
-
-
-
-
+        print("")
 
         #print out to ensure it adds correct
-        print("------------Hiker 1-----------------")
+        print("------------Hiker 1 Log-----------------")
+        self.HikingLog.updateStatus(hiker1, trail3)
         print(hiker1.toString())
+
 
         # displays all the trail from one hiker
         print("Hiker 1 Trails: ", self.HikingLog.getStatus(hiker1))
 
         print("")
-        print("------------Hiker 2-----------------")
+        print("------------Hiker 2 Log-----------------")
         print(hiker2.toString())
         print("Hiker 2 Trails: ", self.HikingLog.getStatus(hiker2))
 
@@ -142,6 +142,7 @@ class Demo:
         print("------------------Finding Hikers------------------")
         print("Finding hikers who hiked", trailName2, self.HikingLog.whoHikedTrail(trail2))
         print("Finding hikers who hiked Cantilever Rock", self.HikingLog.whoHikedTrail(trail4))
+        print("Finding hikers who hiked Hamilton Falls", self.HikingLog.whoHikedTrail(trail3))
 
         print("")
         print("--------Show Fully Updated Hiking Log-------------")
